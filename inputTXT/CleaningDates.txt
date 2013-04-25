@@ -1,0 +1,20 @@
+Date	Comment
+21-Aug-12	cleaning
+4-Sep-12	scheduled cleaning
+11-Sep-12	temperature elevation during normal hours
+18-Sep-12	scheduled cleaning
+2-Oct-12	scheduled cleaning
+16-Oct-12	scheduled cleaning
+24-Oct-12	cage changes for mice 9 and 17 due to to wet leaking water pouch. These cages had nestlets in them too by accident.
+29-Oct-12	cage changed moved to today in advance of hurricane sandy
+13-Nov-12	"cleaning day, problem with lights"
+14-Nov-12	problem with lights
+27-Nov-12	scheduled cleaning
+11-Dec-12	scheduled cleaning
+21-Dec-12	scheduled cleaning
+8-Feb-13	cage changed moved, autoclave was broken for scheduled cleaning feb 7
+21-Feb-13	Scheduled cleaning
+7-Mar-13	Scheduled cleaning
+21-Mar-13	Scheduled cleaning
+27-Mar-13	Mouse 17 is euthanized
+4-Apr-13	Scheduled cleaning

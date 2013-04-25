@@ -1,0 +1,7 @@
+Cage	StartDate	EndDate	Comment
+6	10-Nov-12	20-Apr-13	"Mouse 6 remove from data set, mouse is euthanized on Dec 14, see a lack of running activity starting nov 10"
+14	21-Aug-12	4-Sep-12	"No wheel running data for this range, ok after"
+12	21-Aug-12	25-Aug-12	"No wheel running data for this range, ok after"
+12	3-Sep-12	18-Sep-12	"No wheel running data for this range, ok after"
+20	18-Sep-12	28-Sep-12	"No wheel running data for this range, ok after"
+17	27-Mar-13	20-Apr-13	"Mouse 17 remove from data set, mouse is euthanized on March 27th"
