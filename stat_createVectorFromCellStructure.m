@@ -1,10 +1,10 @@
 % Picks the data from the cell and structure based on what you want to plot
 function [dataVecStructure, timing] = stat_createVectorFromCellStructure(statOut, i, j, k, lengthOfData, fieldName)
 
-    % i = 2; % for different kind of conditions, like "with cage cleaning,
-    %       % without cage cleaning, "sleep/orNot analysis", etc.
-    % j = 2; % without cage cleaning days
-    % k = 1; % standard periodogram (Enright)
+    % i = 2;    % for different kind of conditions, like "with cage cleaning,
+    %           % without cage cleaning, "sleep/orNot analysis", etc.
+    % j = 2;    % without cage cleaning days
+    % k = 1;    % standard periodogram (Enright)
     
     % statOut{i}
 
@@ -12,6 +12,7 @@ function [dataVecStructure, timing] = stat_createVectorFromCellStructure(statOut
     % the one that is empty is the variable to be varied while the others
     % are kept const
     if isempty(i)
+        
         iMin = 1; 
         iMax = lengthOfData;
         jMin = j; jMax = j;
@@ -40,12 +41,22 @@ function [dataVecStructure, timing] = stat_createVectorFromCellStructure(statOut
 
                     % get all the fields out from the particular fieldName
                     % e.g. .mean, .SD, etc.SS
-                    % disp([i j k])
-                    names = fieldnames(statOut{i}{j,k}.(fieldName))
+                    
+                    
+                    
+                    try
+                        names = fieldnames(statOut{i}{j,k}.(fieldName));
+                    catch err
+                        err                        
+                        disp([i j k]) % DEBUG
+                        statOut                    
+                        
+                    end
                     
                     for ij = 1 : length(names)
                         
                         if strfind(names{ij}, 'origData') % this is a vector
+                            
                             dataVecStructure.(names{ij}){i} = statOut{i}{j,k}.(fieldName).(names{ij});
                             
                         else % these are scalars

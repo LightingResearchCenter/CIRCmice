@@ -13,20 +13,23 @@ function MAIN_analysisCIRC()
     handles.dataOutDescription = {'With Cage Cleaning'; 'Without Cage Cleaning'};
     handles.settings.plotIndividualData = 0; % if you wanna plot individual activity (intermediate plots)
     
-    handles.loadImportedDataFromMAT = 1; % 1 if you wanna skip time-consuming computations
-    handles.loadStatsFromMAT = 0; % if you wanna skip stat calculations (these are q
+    handles.loadImportedDataFromMAT = 0; % 1 if you wanna skip time-consuming computations
+    handles.loadStatsFromMAT = 0; % 1 if you wanna skip stat calculations
+        % easiest to keep these at 0 and just wait longer if you are not
+        % sure what you are doing
 
         % settings when auto-saving figures, see exportfig.m for more details
-        handles.figureOut_ON                = 1;
+        handles.figureOut_ON                = 0;
         handles.figureOut_resolution        = '-r100';  
         handles.figureOut_format            = 'png';        
         handles.figureOut_antialiasLevel    = '-a2';
     
     %% Import data & and do the computations
     
-        if handles.loadImportedDataFromMAT == 1
+        if handles.loadImportedDataFromMAT == 0
             
             % Goes through all the different start dates from Circdates.txt
+            disp([num2str(length(dataConstant.protocol.dates)), ' different dates found'])
             for i = 1 : length(dataConstant.protocol.dates)
                 disp(' '); disp(datestr(dataConstant.protocol.dates(i))) % display the date
 
@@ -37,7 +40,8 @@ function MAIN_analysisCIRC()
                         importDataAndDoComputations(dataConstant.protocol.dates(i), dataConstant.fileNames, path, dataConstant, handles);
                 end
             end
-            save('importedData.mat','dataOut')
+            save('importedData.mat', 'dataOut')
+            
         else
             % this just skips the whole importing and reads the data from a
             % pre-saved .mat file. NOTE! if you add files or modify the
@@ -49,7 +53,7 @@ function MAIN_analysisCIRC()
     %% Analyze statistics of the processed datasets
     
         % For time series
-        if handles.loadStatsFromMAT == 1
+        if handles.loadStatsFromMAT == 0
             statOut = statisticalAnalysisMain(dataOut, [], dataConstant, path, handles);
             % statOut_TS = statisticalAnalysisMain_TS(data_timeSeries, dataConstant, path, handles);
             save('statsData.mat', 'statOut')

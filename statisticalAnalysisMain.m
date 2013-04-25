@@ -1,12 +1,15 @@
 % Main function for the various statistical analysis that you want to do
 function statOut = statisticalAnalysisMain(dataOut, dataIn, dataConstant, path, handles)
 
-    statOut = [];
     
     %% Go through the data sets 
     
         % preallocate memory
         statOut = cell(length(dataConstant.protocol.dates),1);
+        
+            disp(' ')
+            disp(['statOut preallocated with ', num2str(length(statOut)), ' rows'])
+            disp(' ')
     
     % Goes through all the different start dates from Circdates.txt
     for i = 1 : length(dataConstant.protocol.dates)
